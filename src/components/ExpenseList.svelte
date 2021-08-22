@@ -5,8 +5,13 @@
     
     export let expenses = [];
     export let handleRemoveExpense;
-</script>
 
+</script>
+<style>
+    h2{
+        text-transform: uppercase;
+    }
+</style>
 
 <section>
 
