@@ -11,7 +11,7 @@
         display_amount = !display_amount;
     }
 
-    const {remove} = getContext('state');
+    const {remove, modify} = getContext('state');
 
     //const dispatch = createEventDispatcher();    
     
@@ -28,10 +28,10 @@
     </div>
 
     <div class="expense-buttons">
-        <button class="expense-btn edit-btn"><i class="fas fa-pen"> Edit</i></button>
         <!--
         <button class="expense-btn delete-btn" on:click={ () => dispatch('delete', {id, name: 'Hello from expense'}) }><i class="fas fa-trash"> Del</i></button>
         -->
+        <button class="expense-btn edit-btn" on:click={() => modify(id)}><i class="fas fa-pen"> Edit</i></button>
         <button class="expense-btn delete-btn" on:click={ () => remove(id) }><i class="fas fa-trash"> Del</i></button>
     </div>
 </article>

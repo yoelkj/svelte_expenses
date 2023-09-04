@@ -3,9 +3,11 @@
     import Title from "./Title.svelte";
     
     export let addExpense;
+    export let editExpense;
     
-    let name = '';
-    let amount = null;
+    export let name = '';
+    export let amount = null;
+    export let isEditing;
 
 
     //$: console.log({name, amount})
@@ -14,7 +16,12 @@
 
     function handleSubmit(e){ 
         
-        addExpense({name, amount});
+        if(isEditing){
+            editExpense({name, amount});
+        }else{
+            addExpense({name, amount});
+        }
+        
 
         name = '';
         amount = null;
@@ -44,8 +51,12 @@
         </p>
         {/if}
 
-        <button type="submit" class="btn btn-block {isEmpty ? 'disabled' : ''} " disabled={isEmpty}>
-            Add expense
+        <button type="submit" class="btn btn-block" class:disabled={isEmpty} disabled={isEmpty}>
+            {#if isEditing}
+                Edit expense
+            {:else}
+                Add expense
+            {/if}
         </button>
 
         <button type="button" class="close-btn">
