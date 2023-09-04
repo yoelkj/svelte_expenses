@@ -1,9 +1,21 @@
 <script>
+    
+    //import { onMount,
+    //         onDestroy,
+    //         beforeUpdate, 
+    //         afterUpdate } from "svelte";
+    //
+    //onMount(() => {console.log('form has mounted');    })
+    //beforeUpdate(() => {console.log('Before updated');    })
+    //afterUpdate(() => {console.log('After updated');    })
+    //onDestroy(() => {console.log('form has hidden');    })
 
     import Title from "./Title.svelte";
     
     export let addExpense;
     export let editExpense;
+    export let closeForm;
+    
     
     export let name = '';
     export let amount = null;
@@ -25,7 +37,13 @@
 
         name = '';
         amount = null;
+        closeForm();
     }
+
+
+
+    
+
 
 </script>
 
@@ -59,7 +77,7 @@
             {/if}
         </button>
 
-        <button type="button" class="close-btn">
+        <button type="button" class="close-btn" on:click={closeForm}>
             <i class="fas fa-times"></i>
             Close
         </button>
