@@ -14,7 +14,7 @@
     let data = [...import_rows];
     
     $: total = expenses.reduce((acc, curr) => {
-        console.log({acc, amount: curr.amount})
+        //console.log({acc, amount: curr.amount})
         return (acc += curr.amount)
     }, 0);
 
@@ -24,10 +24,24 @@
     }
 
     function removeExpense(id) {
+        console.log(id);
         data =  data.filter(item => item.id !== id);
     }
     function clearExpenses(){
         data = [];
+    }
+
+    function addExpense({name, amount}){
+        //console.log({name, amount});
+        let expense = {
+            id: Math.random() * Date.now(),
+            name, 
+            amount
+        }
+
+        data = [expense, ...data];
+        
+        console.log(data);
     }
 
     setContext('state', state);
@@ -46,7 +60,7 @@
 <ExpenseList rows={data} on:delete={deleteExpense} />
 -->
 
-<ExpenseForm />
+<ExpenseForm {addExpense} />
 
 <Totals title="Total expenses" total="{total}" />
 
