@@ -15,8 +15,6 @@
     export let addExpense;
     export let editExpense;
     export let closeForm;
-    
-    
     export let name = '';
     export let amount = null;
     export let isEditing;
