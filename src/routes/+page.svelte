@@ -10,6 +10,7 @@
     import Totals from './Totals.svelte';
     import ExpenseForm from './ExpenseForm.svelte';
     import Modal from './Modal.svelte';
+    
     //Data
     //import import_rows from './expenses'; 
     import expenses from './expenses';
@@ -90,7 +91,6 @@
         setAmount = null;
 	}
 
-
     /*
     function deleteExpense(event){
         const {id, name} = event.detail;
@@ -121,7 +121,6 @@
 <ExpenseList rows={data} on:delete={deleteExpense} />
 -->
 
-
 <Header {showForm}/>
 
 <main class="content">
@@ -145,6 +144,7 @@
     <button on:click={clearExpenses} class="btn-primary btn-block">
         Clear expenses
     </button>
+    
 </main>
 <!--
     <Modal>
