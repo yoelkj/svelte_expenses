@@ -13,7 +13,7 @@
     
     //Data
     //import import_rows from './expenses'; 
-    import expenses from './expenses';
+    //import expenses from './expenses';
     
     let isFormOpen = false;
 
@@ -24,7 +24,7 @@
     let setId = null;
 
     $: isEditing = setId ? true : false;
-    $: total = expenses.reduce((acc, curr) => {
+    $: total = data.reduce((acc, curr) => {
         //console.log({acc, amount: curr.amount})
         return (acc += curr.amount)
     }, 0);
